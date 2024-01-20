@@ -146,6 +146,12 @@ def buy(request):
                     ins = Order(product=i.prod,customer=i.cname,quantity=int(values[k]),phone=cust.phone,price=v,img1=i.img,des1=i.des)
                     ins.save()
                     k += 1
+            for i in cart1:
+                prod = Product.objects.get(name=i.prod)
+                car = Cart.objects.filter(prod=i.prod)
+                for i in car:
+                    i.quan = prod.quantity
+                    i.save()
             Cart.objects.filter(cname=usr).delete()
         else:
             context = {"msg":"Invalid Quantity Values"}
