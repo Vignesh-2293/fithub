@@ -25,7 +25,7 @@ def logvalid(request):
                 return redirect('prod')
             
         if c==0:
-            ermsg = {"error" : "Invalid Credentials"}
+            ermsg = {"error" : "Invalid Credentials / If 'new user' consider registration"}
             return render(request,'login.html',ermsg)
         
 def reg(request):
