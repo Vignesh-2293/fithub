@@ -130,9 +130,6 @@ def buy(request):
                 modprod = Product.objects.get(name=i.prod)
                 modprod.quantity = str(int(modprod.quantity) - int(values[l]))
                 modprod.save()
-                cart_pro_quan = Cart.objects.filter(prod=i.prod)
-                for i in cart_pro_quan:
-                    i.quan =  str(int(i.quan) - int(values[l]))
                 print(i.prod,modprod.quantity)
                 l+=1
             j=0
